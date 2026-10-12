@@ -1721,38 +1721,3 @@ section {
 .cookie-btn-accept:hover {
   background: var(--teal-mid);
 }
-
-/* ==========================================================================
-   CONCEPT PREVIEW SWITCHER BAR
-   ========================================================================== */
-.concept-switcher-bar {
-  background: #FFFFFF;
-  border-bottom: 1px solid var(--border-medium);
-  padding: 8px 0;
-  position: relative;
-  z-index: 101;
-  box-shadow: var(--shadow-sm);
-}
-
-.concept-pill {
-  padding: 5px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 700;
-  border: 1px solid var(--border-medium);
-  color: var(--text-muted);
-  background: var(--bg-body);
-  transition: all var(--transition-fast);
-}
-
-.concept-pill:hover {
-  border-color: var(--teal-primary);
-  color: var(--teal-primary);
-  background: var(--teal-surface);
-}
-
-.concept-pill.active {
-  background: var(--teal-primary);
-  color: #FFFFFF;
-  border-color: var(--teal-primary);
-}
