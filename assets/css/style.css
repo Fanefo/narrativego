@@ -20,10 +20,11 @@
   --orange-soft: #FFF6ED;
   --orange-glow: rgba(247, 159, 72, 0.28);
 
-  /* Backgrounds & Editorial Canvas */
-  --bg-body: #F8F9F5;
+  /* Backgrounds & Editorial Canvas (Warm Yellowish Off-White) */
+  --bg-body: #FAF6ED;
   --bg-card: #FFFFFF;
-  --bg-card-glass: rgba(255, 255, 255, 0.85);
+  --bg-card-glass: rgba(255, 255, 255, 0.88);
+  --bg-subtle-warm: #F4EFE3;
   --text-main: #092622;
   --text-muted: #45615D;
   --text-light: #7E9995;
@@ -297,7 +298,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 249, 245, 0.94);
+  background: rgba(250, 246, 237, 0.95);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border-light);
