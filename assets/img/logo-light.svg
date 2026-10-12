@@ -32,12 +32,12 @@
   <path d="M14 34V14L26 30V14" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M28 22L35 15M35 15H29M35 15V21" stroke="#F79F48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Wordmark 'narrative' with generous clearance so 'v' and 'e' are fully visible -->
+  <!-- Wordmark 'narrative' with generous clearance -->
   <text x="56" y="27" class="brand-title-light">narrative</text>
 
-  <!-- Orange Pill for 'GO' placed clearly after 'narrative' -->
-  <rect x="180" y="9" width="36" height="23" rx="11.5" fill="#F79F48"/>
-  <text x="188.5" y="25" class="brand-go-light">GO</text>
+  <!-- Orange Pill for 'GO' moved clearly to the right -->
+  <rect x="195" y="9" width="38" height="23" rx="11.5" fill="#F79F48"/>
+  <text x="214" y="25" class="brand-go-light" text-anchor="middle">GO</text>
 
   <!-- Sub-label aligned with title -->
   <text x="57" y="40" class="brand-sub-light">BY KRISZTINA HEGEDŰS • SEO STRATEGY</text>
