@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" fill="none">
+  <!-- Concept 3: High-end Editorial Wordmark -->
+  <text x="2" y="28" font-family="'Newsreader', Georgia, serif" font-style="italic" font-weight="600" font-size="28" fill="#015147" letter-spacing="-0.02em">narrative</text>
+  <!-- Pill badge for 'GO' -->
+  <rect x="110" y="10" width="38" height="24" rx="12" fill="#F79F48"/>
+  <text x="118" y="26" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="12" fill="#015147" letter-spacing="0.04em">GO</text>
+  <!-- Sub-label -->
+  <text x="2" y="42" font-family="'Space Grotesk', monospace" font-weight="600" font-size="8.5" fill="#45615D" letter-spacing="0.16em">BY KRISZTINA HEGEDŰS</text>
+</svg>

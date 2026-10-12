@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" fill="none">
+  <!-- Concept 2: Pure Personal Brand Monogram 'KH' with subtle Growth Spark -->
+  <circle cx="24" cy="24" r="22" fill="#015147"/>
+  <!-- K and H intertwined monogram -->
+  <path d="M15 14V34M15 24H21M21 14L31 34M31 14V34" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="31" cy="14" r="2.5" fill="#F79F48"/>
+  <!-- Typography -->
+  <text x="56" y="24" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="16.5" fill="#015147" letter-spacing="-0.02em">KRISZTINA HEGEDŰS</text>
+  <text x="56" y="37" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="600" font-size="9.5" fill="#F79F48" letter-spacing="0.14em">NARRATIVE<tspan fill="#0D695D">GO</tspan> • SEO STRATEGY</text>
+</svg>
