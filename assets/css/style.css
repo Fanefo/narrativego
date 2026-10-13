@@ -1843,36 +1843,65 @@ section {
 /* --- MOBILE LANDSCAPE & LARGE PHONES (768px) --- */
 @media (max-width: 768px) {
   .container {
-    padding: 0 20px;
+    padding: 0 18px;
   }
   section {
-    padding: 64px 0;
+    padding: 56px 0;
   }
+
+  /* --- Global Typography Scaling --- */
+  .section-title {
+    font-size: 1.65rem !important;
+    line-height: 1.2 !important;
+  }
+  .section-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-top: 10px !important;
+  }
+  .section-header {
+    margin-bottom: 36px !important;
+  }
+
+  /* --- Hero Section --- */
   .hero-section {
-    padding: 44px 0 54px;
+    padding: 40px 0 48px;
+  }
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+    margin: 14px 0 18px !important;
   }
   .hero-desc {
-    font-size: 1.05rem;
-    margin-bottom: 26px;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .badge {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+    gap: 5px;
   }
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
-    margin-bottom: 32px;
+    gap: 10px;
+    margin-bottom: 28px;
   }
   .hero-actions .btn {
     width: 100%;
     justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.92rem;
   }
   .portrait-frame img {
-    height: 380px;
+    height: 340px;
   }
-  /* Badges move cleanly below portrait on mobile — no overlapping photo */
+  /* Badges move cleanly below portrait on mobile */
   .hero-visual-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     max-width: 100%;
   }
   .floating-pill {
@@ -1884,7 +1913,7 @@ section {
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-light);
     background: #FFFFFF;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-radius: var(--radius-sm);
   }
   .pill-growth, .pill-eeat {
@@ -1894,161 +1923,748 @@ section {
     right: auto;
   }
   .pill-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
   }
   .pill-sub {
+    font-size: 0.72rem;
+  }
+  .floating-pill .icon-box {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+  }
+  .floating-pill .icon-box .icon-svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* --- Trust Bar --- */
+  .hero-trust-bar {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    padding-top: 20px !important;
+    border-top: 1px solid var(--border-light) !important;
+  }
+  .trust-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px dashed rgba(1, 81, 71, 0.08);
+  }
+  .trust-item:last-child {
+    border-bottom: none;
+  }
+  .trust-number {
+    font-size: 1.3rem;
+    min-width: 50px;
+  }
+  .trust-label {
     font-size: 0.78rem;
   }
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+
+  /* --- About / Philosophy Section --- */
+  .about-grid-lead {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
   }
-  .process-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+  .quote-box {
+    padding: 28px 22px !important;
+    border-radius: var(--radius-md) !important;
   }
-  .blog-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+  .quote-text {
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
   }
+  .about-bullets {
+    gap: 12px !important;
+    margin: 20px 0 !important;
+  }
+  .bullet-item {
+    gap: 10px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* --- Services Grid --- */
+  .services-grid,
+  .services-grid-2col {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .service-card {
+    padding: 22px 18px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .service-featured-badge {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    font-size: 0.68rem !important;
+    padding: 4px 10px !important;
+    margin-bottom: 12px !important;
+    display: inline-flex !important;
+  }
+  .service-icon-wrap {
+    margin-bottom: 14px !important;
+  }
+  .service-icon-wrap .icon-box {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+  }
+  .service-icon-wrap .icon-svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .service-title {
+    font-size: 1.15rem !important;
+    margin-bottom: 8px !important;
+  }
+  .service-desc {
+    font-size: 0.88rem !important;
+    margin-bottom: 16px !important;
+  }
+  .service-features-list {
+    font-size: 0.84rem !important;
+    gap: 8px !important;
+    margin-bottom: 18px !important;
+  }
+  .service-features-list li {
+    gap: 8px !important;
+  }
+  .service-features-list li svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .service-card-footer {
+    padding-top: 14px !important;
+  }
+  .link-arrow {
+    font-size: 0.86rem !important;
+  }
+
+  /* --- ROI Calculator --- */
   .calc-wrapper {
-    padding: 28px 18px;
-    border-radius: var(--radius-md);
+    padding: 22px 16px !important;
+    border-radius: var(--radius-md) !important;
+    gap: 24px !important;
   }
-  /* Comparison table becomes touch-scrollable on phone screens without layout break */
+  .calc-slider-group label {
+    flex-direction: column !important;
+    gap: 4px !important;
+    font-size: 0.85rem !important;
+  }
+  .calc-slider-value {
+    font-size: 0.95rem !important;
+  }
+  .calc-results-card {
+    padding: 22px 16px !important;
+    border-radius: var(--radius-sm) !important;
+  }
+  .calc-revenue-highlight {
+    font-size: 2rem !important;
+  }
+  .calc-results-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .calc-mini-stat {
+    padding: 10px !important;
+  }
+  .calc-mini-val {
+    font-size: 1.05rem !important;
+  }
+  .calc-mini-label {
+    font-size: 0.7rem !important;
+  }
+
+  /* --- Comparison Table → Mobile Card Layout --- */
   .comparison-table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: var(--radius-md);
-    margin: 0 -4px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
   }
-  .comparison-header, .comparison-row {
-    min-width: 520px;
-    padding: 16px 20px;
-    font-size: 0.9rem;
+  .comparison-header {
+    display: none !important;
+  }
+  .comparison-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 18px 16px !important;
+    background: #FFFFFF;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border-light) !important;
+    margin-bottom: 12px !important;
+    box-shadow: var(--shadow-sm);
+    min-width: unset !important;
+  }
+  .comparison-row:last-child {
+    margin-bottom: 0;
+  }
+  .comp-feature {
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    color: var(--teal-primary) !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid var(--border-light) !important;
+    width: 100%;
+  }
+  .comp-agency,
+  .comp-narrative {
+    font-size: 0.84rem !important;
+    gap: 6px !important;
+  }
+  .comp-agency::before {
+    content: 'Agency: ';
+    font-weight: 600;
+    color: #A34848;
+    flex-shrink: 0;
+  }
+  .comp-narrative::before {
+    content: 'narrativeGO: ';
+    font-weight: 700;
+    color: var(--teal-primary);
+    flex-shrink: 0;
+  }
+  .comp-icon-bad,
+  .comp-icon-good {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* --- Case Study Section --- */
+  .results-section {
+    padding: 56px 0 !important;
   }
   .case-study-showcase {
-    padding: 28px 18px;
-    border-radius: var(--radius-md);
+    padding: 22px 16px !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    border-radius: var(--radius-md) !important;
+    margin-top: 28px !important;
+  }
+  .case-study-showcase h3 {
+    font-size: 1.2rem !important;
+    line-height: 1.25 !important;
+    margin: 12px 0 10px !important;
+  }
+  .milestone-stepper {
+    display: flex !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 14px !important;
+    scrollbar-width: none !important;
+  }
+  .milestone-stepper::-webkit-scrollbar {
+    display: none !important;
+  }
+  .milestone-btn {
+    font-size: 0.75rem !important;
+    padding: 7px 12px !important;
+    flex-shrink: 0 !important;
   }
   .case-metrics-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin: 14px 0 !important;
   }
-  .article-header-meta {
-    gap: 12px;
-    font-size: 0.85rem;
-    padding: 14px 0;
+  .metric-card {
+    padding: 12px 10px !important;
+    border-radius: var(--radius-sm) !important;
   }
-  .author-box-complete {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 24px 18px;
-    margin-top: 40px;
+  .metric-value {
+    font-size: 1.4rem !important;
   }
-  .author-box-img {
-    width: 74px;
-    height: 74px;
+  .metric-label {
+    font-size: 0.7rem !important;
+    line-height: 1.3 !important;
+    margin-top: 4px !important;
   }
+  .case-image-box {
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+    margin-top: 6px;
+  }
+  .case-image-box img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover !important;
+  }
+
+  /* --- Contrast / Anti-AI Section --- */
+  .contrast-section {
+    padding: 56px 0 !important;
+  }
+  .contrast-toggle-wrap {
+    margin: 24px 0 28px !important;
+  }
+  .contrast-toggle {
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 4px !important;
+    gap: 4px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .contrast-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px 14px !important;
+    font-size: 0.82rem !important;
+    border-radius: var(--radius-sm) !important;
+  }
+  .contrast-display-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .contrast-preview-panel {
+    padding: 18px 14px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .contrast-badge-status {
+    font-size: 0.7rem !important;
+    padding: 4px 10px !important;
+    margin-bottom: 12px !important;
+  }
+  .contrast-title {
+    font-size: 1.05rem !important;
+    margin-bottom: 10px !important;
+  }
+  .contrast-body {
+    font-size: 0.86rem !important;
+    padding: 10px 12px !important;
+    margin-bottom: 16px !important;
+  }
+  .contrast-meta-box {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+  .meta-chip {
+    padding: 8px 10px !important;
+  }
+  .meta-chip-label {
+    font-size: 0.68rem !important;
+  }
+  .meta-chip-val {
+    font-size: 1rem !important;
+  }
+  .contrast-breakdown-panel {
+    padding: 18px 14px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .breakdown-item {
+    font-size: 0.86rem !important;
+    gap: 8px !important;
+  }
+
+  /* --- Testimonials --- */
+  .testimonials-section {
+    padding: 56px 0 !important;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .testimonial-card {
+    padding: 22px 18px !important;
+  }
+  .testimonial-text {
+    font-size: 0.9rem !important;
+    margin-bottom: 16px !important;
+  }
+  .client-info {
+    gap: 10px !important;
+    padding-top: 14px !important;
+  }
+  .client-avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .client-name {
+    font-size: 0.86rem !important;
+  }
+  .client-title {
+    font-size: 0.72rem !important;
+  }
+
+  /* --- Process Grid --- */
+  .process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .process-card {
+    padding: 22px 18px !important;
+  }
+  .process-number {
+    font-size: 1.5rem !important;
+    margin-bottom: 10px !important;
+  }
+  .process-title {
+    font-size: 1.05rem !important;
+    margin-bottom: 6px !important;
+  }
+  .process-desc {
+    font-size: 0.86rem !important;
+  }
+
+  /* --- Blog Grid --- */
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .blog-thumb {
+    height: 170px !important;
+  }
+  .blog-body {
+    padding: 18px 16px !important;
+  }
+  .blog-title {
+    font-size: 1.05rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+  .blog-excerpt {
+    font-size: 0.86rem !important;
+    margin-bottom: 14px !important;
+  }
+  .blog-meta {
+    font-size: 0.75rem !important;
+    margin-bottom: 8px !important;
+  }
+  /* Blog section header layout fix */
+  .blog-grid + .btn-outline,
+  section > .container > .section-header[style*="flex"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  /* --- FAQ --- */
+  .faq-trigger {
+    padding: 16px 18px !important;
+    font-size: 0.92rem !important;
+    gap: 12px !important;
+  }
+  .faq-content {
+    padding: 0 18px !important;
+  }
+  .faq-content p {
+    font-size: 0.88rem !important;
+    padding-bottom: 16px !important;
+  }
+  .faq-icon {
+    width: 24px !important;
+    height: 24px !important;
+    flex-shrink: 0;
+  }
+
+  /* --- Contact Section --- */
+  .contact-section-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .contact-card-channel {
+    padding: 18px 14px !important;
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+  }
+  .contact-channel-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+  }
+  .contact-channel-icon .icon-svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .contact-form-box {
+    padding: 24px 18px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .form-row-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .form-input, .form-textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+    padding: 12px 14px !important;
+  }
+
+  /* --- CTA Banner --- */
   .cta-banner {
-    padding: 44px 20px;
-    border-radius: var(--radius-md);
+    padding: 36px 18px !important;
+    border-radius: var(--radius-md) !important;
     text-align: center;
   }
   .cta-banner h2 {
-    font-size: clamp(1.8rem, 5.5vw, 2.3rem);
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+  }
+  .cta-banner p {
+    font-size: 0.92rem !important;
   }
   .cta-actions {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
   }
   .cta-actions .btn {
-    width: 100%;
-    justify-content: center;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* --- Article Template --- */
+  .template-hero {
+    padding: 48px 0 56px !important;
+  }
+  .template-hero h1 {
+    font-size: 1.7rem !important;
+    line-height: 1.18 !important;
+  }
+  .template-hero p {
+    font-size: 1rem !important;
+  }
+  .article-header-meta {
+    gap: 10px !important;
+    font-size: 0.82rem !important;
+    padding: 12px 0 !important;
+  }
+  .author-box-complete {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 20px 16px !important;
+    margin-top: 32px !important;
+  }
+  .author-box-img {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  /* --- Footer --- */
+  .site-footer {
+    padding: 48px 0 28px !important;
   }
   .footer-top {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-bottom: 32px !important;
+  }
+  .footer-col h4 {
+    font-size: 0.95rem !important;
+    margin-bottom: 12px !important;
+  }
+  .footer-links {
+    font-size: 0.86rem !important;
+    gap: 8px !important;
   }
   .footer-bottom {
-    flex-direction: column;
-    gap: 14px;
+    flex-direction: column !important;
+    gap: 10px !important;
     text-align: center;
-    font-size: 0.82rem;
+    font-size: 0.78rem !important;
+    padding-top: 20px !important;
+  }
+
+  /* --- Marquee Bar --- */
+  .marquee-bar {
+    padding: 12px 0 !important;
+  }
+  .marquee-text {
+    font-size: 0.82rem !important;
+    padding: 0 14px !important;
+  }
+
+  /* --- Prevent hover effects on touch devices --- */
+  .spotlight-card:hover {
+    transform: none !important;
+  }
+  .service-card:hover {
+    transform: none !important;
+  }
+  .blog-card:hover {
+    transform: none !important;
+  }
+  .testimonial-card:hover {
+    transform: none !important;
+  }
+  .process-card:hover {
+    transform: none !important;
   }
 }
 
 /* --- SMALL SMARTPHONES (480px and below) --- */
 @media (max-width: 480px) {
   .container {
-    padding: 0 16px;
+    padding: 0 14px;
   }
   .site-header {
-    height: 66px;
+    height: 62px;
   }
   .nav-wrapper {
-    height: 66px;
+    height: 62px;
   }
   .site-logo img {
-    height: 32px;
+    height: 28px;
   }
   .nav-menu {
-    top: 66px;
-    max-height: calc(100vh - 66px);
-    padding: 20px 16px 32px;
+    top: 62px;
+    max-height: calc(100vh - 62px);
+    padding: 16px 14px 28px;
+  }
+  .nav-link {
+    font-size: 1rem !important;
+    padding: 10px 0 !important;
   }
   .hero-section {
-    padding: 36px 0 44px;
+    padding: 28px 0 36px;
   }
   .hero-title {
-    font-size: 2.1rem;
-    line-height: 1.15;
+    font-size: 1.7rem !important;
+    line-height: 1.13 !important;
+    margin: 12px 0 14px !important;
   }
-  .hero-trust-bar {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding-top: 18px;
+  .hero-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
   }
-  .trust-item {
-    padding: 6px 0;
-    border-bottom: 1px dashed var(--border-light);
-  }
-  .trust-item:last-child {
-    border-bottom: none;
+  .badge {
+    font-size: 0.66rem !important;
+    padding: 4px 8px !important;
   }
   .portrait-frame img {
-    height: 320px;
+    height: 280px !important;
   }
   .floating-pill {
-    padding: 10px 14px;
+    padding: 8px 10px !important;
+    gap: 8px !important;
   }
-  .calc-results-card {
-    padding: 22px 14px;
+  .floating-pill .icon-box {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 6px !important;
   }
+  .floating-pill .icon-box .icon-svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  .pill-title {
+    font-size: 0.78rem !important;
+  }
+  .pill-sub {
+    font-size: 0.66rem !important;
+  }
+
+  /* --- Section titles even smaller --- */
+  .section-title {
+    font-size: 1.4rem !important;
+  }
+  .section-subtitle {
+    font-size: 0.86rem !important;
+  }
+
+  /* --- Calculator --- */
   .calc-revenue-highlight {
-    font-size: 2.3rem;
+    font-size: 1.7rem !important;
   }
   .calc-results-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
   }
+
+  /* --- Case study metrics --- */
   .case-metrics-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
   }
+  .metric-value {
+    font-size: 1.2rem !important;
+  }
+  .metric-label {
+    font-size: 0.65rem !important;
+  }
+
+  /* --- Contrast Section --- */
+  .contrast-meta-box {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  /* --- Comparison row label pseudo-elements font fix --- */
+  .comp-agency::before,
+  .comp-narrative::before {
+    font-size: 0.78rem !important;
+  }
+
+  /* --- Process cards compact --- */
+  .process-card {
+    padding: 16px 14px !important;
+  }
+  .process-number {
+    font-size: 1.3rem !important;
+  }
+  .process-title {
+    font-size: 0.95rem !important;
+  }
+  .process-desc {
+    font-size: 0.82rem !important;
+  }
+
+  /* --- Blog even more compact --- */
+  .blog-thumb {
+    height: 140px !important;
+  }
+  .blog-body {
+    padding: 14px 12px !important;
+  }
+  .blog-title {
+    font-size: 0.95rem !important;
+  }
+  .blog-excerpt {
+    font-size: 0.82rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* --- FAQ Compact --- */
+  .faq-trigger {
+    padding: 14px 14px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* --- Contact --- */
+  .contact-form-box {
+    padding: 18px 14px !important;
+  }
+
+  /* --- CTA Banner --- */
+  .cta-banner h2 {
+    font-size: 1.35rem !important;
+  }
+
+  /* --- Footer --- */
+  .footer-brand p {
+    font-size: 0.84rem !important;
+  }
+
+  /* --- Cookie --- */
   .cookie-pill {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     max-width: none;
     flex-direction: column;
     align-items: stretch;
     text-align: center;
-    gap: 10px;
-    padding: 14px 16px;
+    gap: 8px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
   }
 }
 
@@ -2434,256 +3050,5 @@ body::before {
   pointer-events: none;
 }
 
-/* ==========================================================================
-   MOBILE & TABLET POLISH SUITE (FLAWLESS SMARTPHONE UX)
-   ========================================================================== */
 
-@media (max-width: 768px) {
-  /* Hero Section: Photo stays clean and unobstructed */
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
 
-  .hero-visual-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .portrait-frame {
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 3px solid #FFFFFF;
-    box-shadow: var(--shadow-md);
-  }
-
-  .portrait-frame img {
-    height: 380px !important;
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  /* Badges move BELOW the photo into a clean stack — NO MORE OVERLAPPING PHOTO */
-  .floating-pill {
-    position: static !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    transform: none !important;
-    animation: none !important;
-    box-shadow: var(--shadow-sm) !important;
-    border: 1px solid var(--border-light) !important;
-    background: #FFFFFF !important;
-    padding: 12px 16px !important;
-    border-radius: var(--radius-sm) !important;
-  }
-
-  .pill-growth, .pill-eeat {
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-  }
-
-  /* Trust Bar on Mobile */
-  .hero-trust-bar {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-    padding-top: 20px !important;
-    border-top: 1px solid var(--border-light) !important;
-  }
-
-  .trust-item {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    background: rgba(1, 81, 71, 0.03);
-    padding: 10px 14px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-light);
-  }
-
-  /* Services Grid on Mobile */
-  .services-grid,
-  .services-grid-2col {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  .service-card {
-    padding: 24px 18px !important;
-    border-radius: var(--radius-md) !important;
-  }
-
-  .service-featured-badge {
-    top: 18px !important;
-    right: 18px !important;
-    font-size: 0.68rem !important;
-    padding: 4px 11px !important;
-  }
-
-  .service-title {
-    font-size: 1.3rem !important;
-  }
-
-  /* Case Study Card on Mobile */
-  .case-study-showcase {
-    padding: 24px 18px !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    border-radius: var(--radius-md) !important;
-  }
-
-  .case-study-showcase h3 {
-    font-size: 1.35rem !important;
-    line-height: 1.25 !important;
-  }
-
-  .milestone-stepper {
-    display: flex !important;
-    gap: 8px !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 16px !important;
-    scrollbar-width: none !important;
-  }
-
-  .milestone-stepper::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .milestone-btn {
-    font-size: 0.82rem !important;
-    padding: 8px 15px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .case-metrics-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-    margin: 18px 0 !important;
-  }
-
-  .metric-card {
-    padding: 14px 12px !important;
-    border-radius: var(--radius-sm) !important;
-  }
-
-  .metric-value {
-    font-size: 1.55rem !important;
-  }
-
-  .metric-label {
-    font-size: 0.74rem !important;
-    line-height: 1.3 !important;
-  }
-
-  .case-image-box {
-    border-radius: var(--radius-md) !important;
-    overflow: hidden !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
-    margin-top: 10px;
-  }
-
-  .case-image-box img {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    object-fit: cover !important;
-  }
-
-  /* Anti-AI Philosophy / Contrast Switch on Mobile */
-  .contrast-display-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  .contrast-switch-bar {
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 8px !important;
-  }
-
-  .btn-switch {
-    width: 100% !important;
-    justify-content: center !important;
-    padding: 11px 16px !important;
-    font-size: 0.88rem !important;
-  }
-
-  .contrast-preview-panel {
-    padding: 22px 16px !important;
-    border-radius: var(--radius-md) !important;
-  }
-
-  .contrast-title {
-    font-size: 1.18rem !important;
-  }
-
-  .contrast-body {
-    font-size: 0.94rem !important;
-    padding: 12px 14px !important;
-  }
-
-  .contrast-meta-box {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-  }
-
-  .meta-chip {
-    padding: 10px 12px !important;
-  }
-
-  .meta-chip-val {
-    font-size: 1.15rem !important;
-  }
-
-  .contrast-breakdown-panel {
-    padding: 22px 16px !important;
-    border-radius: var(--radius-md) !important;
-  }
-
-  /* ROI Calculator on Mobile */
-  .calc-wrapper {
-    padding: 22px 16px !important;
-    gap: 28px !important;
-    border-radius: var(--radius-md) !important;
-  }
-
-  .calc-results-card {
-    padding: 24px 16px !important;
-    border-radius: var(--radius-sm) !important;
-  }
-
-  .calc-revenue-highlight {
-    font-size: 2.2rem !important;
-  }
-
-  .calc-results-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem !important;
-    line-height: 1.15 !important;
-  }
-
-  .portrait-frame img {
-    height: 320px !important;
-  }
-
-  .calc-results-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .case-metrics-grid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-}
