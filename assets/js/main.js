@@ -151,8 +151,8 @@ function initRoiCalculator() {
     const orderVal = parseInt(orderValInput.value, 10);
 
     // Formatted inputs
-    if (trafficDisplay) trafficDisplay.textContent = traffic.toLocaleString('ro-RO') + ' vizitatori';
-    if (orderValDisplay) orderValDisplay.textContent = orderVal + ' €';
+    if (trafficDisplay) trafficDisplay.textContent = traffic.toLocaleString('en-US') + ' visitors';
+    if (orderValDisplay) orderValDisplay.textContent = '€' + orderVal;
 
     // Model: Realistic +160% organic traffic gain via narrativeGO strategy over 6 months
     const growthRate = 1.6;
@@ -163,9 +163,9 @@ function initRoiCalculator() {
     const additionalOrders = Math.round(additionalTraffic * conversionRate);
     const additionalMonthlyRevenue = Math.round(additionalOrders * orderVal);
 
-    if (newVisitsDisplay) newVisitsDisplay.textContent = '+' + additionalTraffic.toLocaleString('ro-RO');
-    if (newOrdersDisplay) newOrdersDisplay.textContent = '+' + additionalOrders.toLocaleString('ro-RO');
-    revenueDisplay.textContent = '+' + additionalMonthlyRevenue.toLocaleString('ro-RO') + ' € / lună';
+    if (newVisitsDisplay) newVisitsDisplay.textContent = '+' + additionalTraffic.toLocaleString('en-US');
+    if (newOrdersDisplay) newOrdersDisplay.textContent = '+' + additionalOrders.toLocaleString('en-US');
+    revenueDisplay.textContent = '+' + additionalMonthlyRevenue.toLocaleString('en-US') + ' € / month';
   }
 
   trafficInput.addEventListener('input', calculate);
@@ -181,8 +181,8 @@ function initCookieConsent() {
   pill.className = 'cookie-pill';
   pill.id = 'cookiePill';
   pill.innerHTML = `
-    <span>Acest site folosește cookie-uri esențiale pentru performanță și securitate.</span>
-    <button class="cookie-btn-accept" id="btnAcceptCookie">De acord</button>
+    <span>This site uses essential cookies for performance and security.</span>
+    <button class="cookie-btn-accept" id="btnAcceptCookie">Accept</button>
   `;
   document.body.appendChild(pill);
 
