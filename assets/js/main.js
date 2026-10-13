@@ -21,12 +21,14 @@ function initMobileNav() {
 
   toggleBtn.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('open');
+    toggleBtn.classList.toggle('open', isOpen);
     toggleBtn.setAttribute('aria-expanded', isOpen);
   });
 
   document.addEventListener('click', (e) => {
     if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target) && navMenu.classList.contains('open')) {
       navMenu.classList.remove('open');
+      toggleBtn.classList.remove('open');
       toggleBtn.setAttribute('aria-expanded', 'false');
     }
   });
@@ -34,6 +36,7 @@ function initMobileNav() {
   navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('open');
+      toggleBtn.classList.remove('open');
       toggleBtn.setAttribute('aria-expanded', 'false');
     });
   });
