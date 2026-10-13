@@ -535,20 +535,23 @@ p {
 }
 
 /* ==========================================================================
-   MARQUEE BANNER
+   MARQUEE BANNER — VIBRANT BRAND ACCENT RIBBON
    ========================================================================== */
 .marquee-bar {
-  background: var(--teal-primary);
-  color: var(--text-inverse);
+  background: var(--orange-accent);
+  color: var(--teal-dark);
   padding: 18px 0;
   overflow: hidden;
   position: relative;
+  border-top: 1px solid rgba(7, 67, 59, 0.1);
+  border-bottom: 1px solid rgba(7, 67, 59, 0.1);
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marqueeLoop 28s linear infinite;
+  animation: marqueeLoop 26s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track:hover {
@@ -558,22 +561,25 @@ p {
 .marquee-group {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .marquee-text {
-  font-family: var(--font-main);
-  font-weight: 600;
-  font-size: 1.15rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
   white-space: nowrap;
-  letter-spacing: -0.01em;
-  padding: 0 24px;
+  letter-spacing: 0.04em;
+  padding: 0 22px;
+  text-transform: uppercase;
 }
 
 .marquee-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--orange-accent);
+  background: var(--teal-dark);
+  opacity: 0.7;
 }
 
 @keyframes marqueeLoop {
@@ -2059,4 +2065,315 @@ section {
 
 .cookie-btn-accept:hover {
   background: var(--teal-mid);
+}
+
+/* ==========================================================================
+   EDITORIAL LUXURY CREATIVE SUITE (ANTI-AI AESTHETICS)
+   ========================================================================== */
+
+/* 1. Organic Tactile Paper Grain Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.038;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* 2. Dynamic Spotlight Cursor Glow on Interactive Cards */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(247, 159, 72, 0.12),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(1, 81, 71, 0.14);
+  border-color: rgba(247, 159, 72, 0.45);
+}
+
+/* 3. Button Micro-Animations & Magnetic Hover Lift */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover .icon-svg {
+  transform: translateX(5px);
+}
+
+.btn-outline:hover .icon-svg {
+  transform: translateX(4px);
+}
+
+/* 4. Editorial Scroll Reveal Transitions */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 5. Interactive Content Contrast Split Showcase */
+.contrast-section {
+  padding: 100px 0;
+  background: #FFFFFF;
+  position: relative;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.contrast-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 36px 0 44px;
+}
+
+.contrast-toggle {
+  display: inline-flex;
+  background: var(--teal-surface);
+  padding: 6px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  gap: 8px;
+}
+
+.contrast-btn {
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.contrast-btn.active {
+  background: var(--teal-primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.contrast-btn.active.is-ai {
+  background: #C93B2B;
+  color: #FFFFFF;
+}
+
+.contrast-display-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+.contrast-preview-panel {
+  background: var(--canvas-bg);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-light);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.contrast-preview-panel.panel-ai {
+  border-color: rgba(201, 59, 43, 0.35);
+  background: #FFF8F7;
+}
+
+.contrast-preview-panel.panel-human {
+  border-color: rgba(1, 81, 71, 0.35);
+  background: #F4F8F7;
+}
+
+.contrast-badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.badge-status-bad {
+  background: rgba(201, 59, 43, 0.12);
+  color: #C93B2B;
+}
+
+.badge-status-good {
+  background: rgba(1, 81, 71, 0.12);
+  color: var(--teal-primary);
+}
+
+.contrast-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.contrast-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 16px 20px;
+  border-left: 3px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.contrast-meta-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.meta-chip {
+  background: #FFFFFF;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.meta-chip-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.meta-chip-val {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.val-bad {
+  color: #C93B2B;
+}
+
+.val-good {
+  color: var(--teal-primary);
+}
+
+.contrast-breakdown-panel {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+/* 6. Interactive Case Study Milestones */
+.milestone-stepper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 14px;
+  overflow-x: auto;
+}
+
+.milestone-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.milestone-btn.active {
+  background: var(--teal-primary);
+  color: #FFFFFF;
+}
+
+.milestone-panel {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+
+.milestone-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .contrast-display-grid {
+    grid-template-columns: 1fr;
+  }
 }

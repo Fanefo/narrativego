@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initRoiCalculator();
   initCookieConsent();
+  initSpotlightCards();
+  initContentContrastSwitch();
+  initCaseStudyMilestones();
+  initEditorialScrollReveal();
 });
 
 // Mobile Navigation Toggle
@@ -195,4 +199,143 @@ function initCookieConsent() {
     pill.classList.remove('show');
     setTimeout(() => pill.remove(), 400);
   });
+}
+
+// 1. Dynamic Cursor Spotlight Effect on Interactive Cards
+function initSpotlightCards() {
+  const cards = document.querySelectorAll('.spotlight-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+// 2. Interactive "Generic AI vs narrativeGO" Contrast Switch
+function initContentContrastSwitch() {
+  const btnAi = document.getElementById('contrastBtnAi');
+  const btnHuman = document.getElementById('contrastBtnHuman');
+  const previewPanel = document.getElementById('contrastPreviewPanel');
+  const badgeStatus = document.getElementById('contrastBadgeStatus');
+  const contrastTitle = document.getElementById('contrastTitle');
+  const contrastBody = document.getElementById('contrastBody');
+  const dwellTime = document.getElementById('contrastDwellTime');
+  const bounceRate = document.getElementById('contrastBounceRate');
+  const eeatScore = document.getElementById('contrastEeatScore');
+  const convRate = document.getElementById('contrastConvRate');
+  const verdictText = document.getElementById('contrastVerdict');
+
+  if (!btnAi || !btnHuman || !previewPanel) return;
+
+  const data = {
+    ai: {
+      isAi: true,
+      badgeClass: 'badge-status-bad',
+      badgeText: '⚠️ Generic AI Content (What Search Engines Downgrade)',
+      title: '“10 Tips for Effective SEO in 2026 That You Need to Know Today”',
+      body: '“In today’s fast-paced digital ecosystem, search engine optimization is more critical than ever before. Many businesses struggle with online visibility. Therefore, optimizing keywords and utilizing key phrases ensures your brand remains competitive across search engines. In conclusion, SEO is a journey, not a destination...”',
+      dwell: '14 seconds',
+      dwellClass: 'val-bad',
+      bounce: '86.4%',
+      bounceClass: 'val-bad',
+      eeat: 'Critical / Low',
+      eeatClass: 'val-bad',
+      conv: '0.0%',
+      convClass: 'val-bad',
+      verdict: 'Zero original perspective. Flagged by modern retrieval models as duplicate fluff. High bounce rate signals poor user satisfaction and damages whole-site authority.'
+    },
+    human: {
+      isAi: false,
+      badgeClass: 'badge-status-good',
+      badgeText: '✦ narrativeGO System (What Google & Buyers Reward)',
+      title: '“Why Real E-E-A-T Signals Outweigh Word Count: Lessons from Scaling 40+ Brands”',
+      body: '“When our retail client scaled organic search revenue by +164%, we didn’t publish 50 thin glossaries. We pruned 140 cannibalizing legacy pages, fixed 3 render-blocking LCP scripts, and built 4 authoritative narrative hubs authored by their in-house biochemist. Here is the exact empirical roadmap...”',
+      dwell: '4m 18s',
+      dwellClass: 'val-good',
+      bounce: '28.2%',
+      bounceClass: 'val-good',
+      eeat: 'High Authority (Verified)',
+      eeatClass: 'val-good',
+      conv: '18.4%',
+      convClass: 'val-good',
+      verdict: 'Original empirical testing data, authentic author voice, and direct answers to nuanced buyer queries. Captures top rankings, Google AI Overviews citations, and direct client inquiries.'
+    }
+  };
+
+  function setMode(mode) {
+    const d = data[mode];
+    if (mode === 'ai') {
+      btnAi.classList.add('active', 'is-ai');
+      btnHuman.classList.remove('active');
+      previewPanel.className = 'contrast-preview-panel panel-ai';
+    } else {
+      btnHuman.classList.add('active');
+      btnAi.classList.remove('active', 'is-ai');
+      previewPanel.className = 'contrast-preview-panel panel-human';
+    }
+
+    badgeStatus.className = 'contrast-badge-status ' + d.badgeClass;
+    badgeStatus.textContent = d.badgeText;
+    contrastTitle.textContent = d.title;
+    contrastBody.textContent = d.body;
+
+    dwellTime.textContent = d.dwell;
+    dwellTime.className = 'meta-chip-val ' + d.dwellClass;
+
+    bounceRate.textContent = d.bounce;
+    bounceRate.className = 'meta-chip-val ' + d.bounceClass;
+
+    eeatScore.textContent = d.eeat;
+    eeatScore.className = 'meta-chip-val ' + d.eeatClass;
+
+    convRate.textContent = d.conv;
+    convRate.className = 'meta-chip-val ' + d.convClass;
+
+    if (verdictText) verdictText.textContent = d.verdict;
+  }
+
+  btnAi.addEventListener('click', () => setMode('ai'));
+  btnHuman.addEventListener('click', () => setMode('human'));
+}
+
+// 3. Interactive Case Study Milestones Explorer
+function initCaseStudyMilestones() {
+  const buttons = document.querySelectorAll('.milestone-btn');
+  const panels = document.querySelectorAll('.milestone-panel');
+  if (!buttons.length || !panels.length) return;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-milestone');
+      buttons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) targetPanel.classList.add('active');
+    });
+  });
+}
+
+// 4. Silky Editorial Scroll Reveal
+function initEditorialScrollReveal() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach(el => observer.observe(el));
 }
