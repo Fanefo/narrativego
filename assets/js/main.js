@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initContentContrastSwitch();
   initCaseStudyMilestones();
   initEditorialScrollReveal();
+  initScrollProgressBar();
+  initScrollRotatingBadges();
+  initLiveGrowthChart();
+  init3DTiltCards();
 });
 
 // Mobile Navigation Toggle
@@ -338,4 +342,116 @@ function initEditorialScrollReveal() {
   }, { threshold: 0.15 });
 
   elements.forEach(el => observer.observe(el));
+}
+
+// 5. Scroll Reading Progress Bar
+function initScrollProgressBar() {
+  const bar = document.getElementById('scrollProgressBar');
+  if (!bar) return;
+
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight <= 0) return;
+    const progress = (window.pageYOffset / totalHeight) * 100;
+    bar.style.width = `${progress}%`;
+  }, { passive: true });
+}
+
+// 6. Scroll-Driven Rotating Seals and Elements
+function initScrollRotatingBadges() {
+  const seal = document.getElementById('heroScrollSeal');
+  const spinCw = document.querySelectorAll('.scroll-spin-cw');
+  const spinCcw = document.querySelectorAll('.scroll-spin-ccw');
+
+  if (!seal && !spinCw.length && !spinCcw.length) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+    if (seal) {
+      seal.style.transform = `rotate(${scrollY * 0.28}deg)`;
+    }
+    spinCw.forEach(el => {
+      el.style.transform = `rotate(${scrollY * 0.18}deg)`;
+    });
+    spinCcw.forEach(el => {
+      el.style.transform = `rotate(${-scrollY * 0.18}deg)`;
+    });
+  }, { passive: true });
+}
+
+// 7. Live Interactive SEO Growth Terminal & Chart
+function initLiveGrowthChart() {
+  const chartPath = document.getElementById('chartLinePath');
+  const terminal = document.getElementById('seoLiveTerminal');
+  if (!chartPath || !terminal) return;
+
+  try {
+    const length = chartPath.getTotalLength ? chartPath.getTotalLength() : 500;
+    chartPath.style.strokeDasharray = `${length}`;
+    chartPath.style.strokeDashoffset = `${length}`;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          chartPath.style.transition = 'stroke-dashoffset 2.4s cubic-bezier(0.16, 1, 0.3, 1)';
+          chartPath.style.strokeDashoffset = '0';
+          observer.unobserve(terminal);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(terminal);
+  } catch (e) {
+    chartPath.style.strokeDashoffset = '0';
+  }
+
+  // Interactive Nodes Tooltip / Click
+  const nodes = terminal.querySelectorAll('.chart-node');
+  const timelinePill = terminal.querySelector('.chart-timeline-pill');
+
+  nodes.forEach(node => {
+    node.addEventListener('mouseenter', () => {
+      const tip = node.getAttribute('data-tip');
+      if (tip && timelinePill) {
+        timelinePill.textContent = tip;
+        timelinePill.style.borderColor = 'var(--orange-accent)';
+        timelinePill.style.color = '#FFFFFF';
+      }
+    });
+    node.addEventListener('mouseleave', () => {
+      if (timelinePill) {
+        timelinePill.textContent = '7-Month Compounding Curve';
+        timelinePill.style.borderColor = 'rgba(255, 255, 255, 0.14)';
+        timelinePill.style.color = 'rgba(255, 255, 255, 0.75)';
+      }
+    });
+  });
+}
+
+// 8. 3D Card Perspective Tilt on Hover
+function init3DTiltCards() {
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  const tiltCards = document.querySelectorAll('.service-card, .metric-card, .quote-box, .keyword-item-chip');
+  if (!tiltCards.length) return;
+
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotateX = -(y / (rect.height / 2)) * 4.5;
+      const rotateY = (x / (rect.width / 2)) * 4.5;
+      card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+    });
+
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'none';
+    });
+  });
 }

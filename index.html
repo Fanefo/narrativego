@@ -51,6 +51,8 @@
   </script>
 </head>
 <body>
+  <!-- Top Reading Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
 
   <!-- HEADER / NAVIGATION -->
   <header class="site-header" id="top">
@@ -127,6 +129,25 @@
         <div class="hero-visual-wrapper">
           <div class="portrait-frame">
             <img src="assets/img/krisztina-hegedus.jpg" alt="Krisztina Hegedűs — Senior SEO & Content Strategist" loading="eager" width="600" height="750">
+          </div>
+
+          <!-- Rotating Scroll Stamp -->
+          <div class="scroll-rotate-seal" id="heroScrollSeal" aria-hidden="true" title="Narrative SEO Strategy • Krisztina Hegedűs">
+            <svg viewBox="0 0 180 180" class="rotating-seal-svg">
+              <defs>
+                <path id="sealPath" d="M 90, 90 m -62, 0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" />
+              </defs>
+              <circle cx="90" cy="90" r="82" fill="#0E2F28" stroke="#F79F48" stroke-width="2.5" />
+              <circle cx="90" cy="90" r="54" fill="#015147" stroke="rgba(247, 159, 72, 0.4)" stroke-width="1.5" stroke-dasharray="4 3" />
+              <text font-size="11.5" font-family="'Outfit', sans-serif" font-weight="800" letter-spacing="3" fill="#FFFFFF">
+                <textPath href="#sealPath" startOffset="0%">
+                  ✦ NARRATIVE SEO ✦ KRISZTINA HEGEDŰS ✦ TOP 1% ✦
+                </textPath>
+              </text>
+              <g transform="translate(90, 90)">
+                <polygon points="0,-18 5,-5 18,-4 7,5 11,18 0,9 -11,18 -7,5 -18,-4 -5,-5" fill="#F79F48" />
+              </g>
+            </svg>
           </div>
 
           <!-- Floating Interactive Badges -->
@@ -246,7 +267,7 @@
         <div class="services-grid">
           <!-- Service 1 -->
           <div class="service-card featured spotlight-card reveal-on-scroll">
-            <span class="badge badge-orange service-featured-badge">Most In-Demand</span>
+            <span class="badge badge-orange service-featured-badge">★ Most In-Demand</span>
             <div>
               <div class="service-icon-wrap">
                 <div class="icon-box">
@@ -479,8 +500,131 @@
             <a href="#contact" class="btn btn-primary" style="margin-top: 10px;">I Want Similar Results for My Site</a>
           </div>
 
-          <div class="case-image-box">
-            <img src="assets/img/seo-case-study.jpg" alt="Real search growth performance metrics" loading="lazy" width="600" height="340">
+          <div class="case-image-box seo-live-terminal" id="seoLiveTerminal">
+            <!-- Terminal Header -->
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">
+                <span class="pulse-indicator"></span>
+                <span>GSC_LIVE_TRAJECTORY // 12K_SKU_ECOMMERCE</span>
+              </div>
+              <div class="terminal-tag">VERIFIED API SYNC</div>
+            </div>
+
+            <!-- Terminal Live Chart -->
+            <div class="terminal-chart-area">
+              <div class="chart-meta">
+                <div>
+                  <div class="chart-metric-title">Monthly Organic Revenue Run-Rate</div>
+                  <div class="chart-metric-val">€112,480 <span class="chart-badge-up">+412%</span></div>
+                </div>
+                <div class="chart-timeline-pill">7-Month Compounding Curve</div>
+              </div>
+
+              <!-- Animated SVG Chart -->
+              <div class="svg-chart-container">
+                <svg viewBox="0 0 460 170" class="live-growth-svg" id="liveGrowthSvg">
+                  <defs>
+                    <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#F79F48" stop-opacity="0.45"/>
+                      <stop offset="100%" stop-color="#F79F48" stop-opacity="0.0"/>
+                    </linearGradient>
+                    <linearGradient id="strokeGradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#FFFFFF"/>
+                      <stop offset="50%" stop-color="#F79F48"/>
+                      <stop offset="100%" stop-color="#FFA857"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Subtle Grid Lines -->
+                  <line x1="20" y1="35" x2="440" y2="35" stroke="rgba(255,255,255,0.08)" stroke-dasharray="3 3"/>
+                  <line x1="20" y1="75" x2="440" y2="75" stroke="rgba(255,255,255,0.08)" stroke-dasharray="3 3"/>
+                  <line x1="20" y1="115" x2="440" y2="115" stroke="rgba(255,255,255,0.08)" stroke-dasharray="3 3"/>
+                  <line x1="20" y1="150" x2="440" y2="150" stroke="rgba(255,255,255,0.15)"/>
+
+                  <!-- Gradient Area Fill -->
+                  <path class="chart-area-path" d="M 30,145 C 90,140 140,130 200,105 C 270,78 350,48 430,22 L 430,150 L 30,150 Z" fill="url(#curveGradient)" />
+
+                  <!-- Main Compounding Stroke Path -->
+                  <path class="chart-line-path" id="chartLinePath" d="M 30,145 C 90,140 140,130 200,105 C 270,78 350,48 430,22" fill="none" stroke="url(#strokeGradient)" stroke-width="3.5" stroke-linecap="round"/>
+
+                  <!-- Milestone Interactive Data Nodes -->
+                  <g class="chart-node" data-tip="Month 1: €14.2k • Architecture Audit">
+                    <circle cx="30" cy="145" r="5" fill="#FFFFFF" stroke="#0E2F28" stroke-width="2"/>
+                  </g>
+                  <g class="chart-node" data-tip="Month 3: €38.4k • Canonical Cleanup">
+                    <circle cx="160" cy="122" r="5" fill="#F79F48" stroke="#0E2F28" stroke-width="2"/>
+                  </g>
+                  <g class="chart-node" data-tip="Month 5: €76.8k • 12 Buyer Clusters">
+                    <circle cx="290" cy="72" r="5" fill="#F79F48" stroke="#0E2F28" stroke-width="2"/>
+                  </g>
+                  <g class="chart-node pulse-node" data-tip="Month 7: €112.5k (+412% Peak)">
+                    <circle cx="430" cy="22" r="8" fill="#F79F48" opacity="0.3" class="pulse-ring"/>
+                    <circle cx="430" cy="22" r="5.5" fill="#FFA857" stroke="#FFFFFF" stroke-width="2.5"/>
+                  </g>
+                </svg>
+                
+                <!-- Timeline Months Axis -->
+                <div class="chart-axis-labels">
+                  <span>Month 1 (Audit)</span>
+                  <span>Month 3 (Clusters)</span>
+                  <span>Month 5 (Scale)</span>
+                  <span>Month 7 (Compounded)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Keyword Position Velocity Tracker -->
+            <div class="terminal-keywords-bar">
+              <div class="keyword-item-chip">
+                <div class="keyword-term">“organic mattress sale”</div>
+                <div class="keyword-rank-pill"><span class="arrow-up">▲</span> #1 <span class="rank-delta">(+36)</span></div>
+              </div>
+              <div class="keyword-item-chip">
+                <div class="keyword-term">“luxury sustainable bedding”</div>
+                <div class="keyword-rank-pill"><span class="arrow-up">▲</span> #2 <span class="rank-delta">(+27)</span></div>
+              </div>
+              <div class="keyword-item-chip">
+                <div class="keyword-term">“non-toxic linen duvet”</div>
+                <div class="keyword-rank-pill"><span class="arrow-up">▲</span> #1 <span class="rank-delta">(+40)</span></div>
+              </div>
+            </div>
+
+            <!-- Real-Time Speed & UX Mini-Gauge -->
+            <div class="terminal-footer-metrics">
+              <div class="footer-metric-pill">
+                <div class="radial-ring-wrap">
+                  <svg viewBox="0 0 36 36" class="circular-chart-green">
+                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="circle-fill" stroke-dasharray="99, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                  </svg>
+                  <span class="ring-label">99</span>
+                </div>
+                <div>
+                  <div class="ring-desc-title">Core Web Vitals</div>
+                  <div class="ring-desc-val">Passed 100%</div>
+                </div>
+              </div>
+
+              <div class="footer-metric-stat">
+                <span class="stat-num">0.82s</span>
+                <span class="stat-name">LCP Speed</span>
+              </div>
+
+              <div class="footer-metric-stat">
+                <span class="stat-num">0.00</span>
+                <span class="stat-name">CLS Zero Shift</span>
+              </div>
+
+              <div class="footer-metric-stat">
+                <span class="stat-num">14ms</span>
+                <span class="stat-name">INP Instant</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
