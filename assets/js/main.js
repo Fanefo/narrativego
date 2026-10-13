@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCaseStudyMilestones();
   initEditorialScrollReveal();
   initScrollProgressBar();
-  initScrollRotatingBadges();
-  initLiveGrowthChart();
   init3DTiltCards();
 });
 
@@ -357,78 +355,7 @@ function initScrollProgressBar() {
   }, { passive: true });
 }
 
-// 6. Scroll-Driven Rotating Seals and Elements
-function initScrollRotatingBadges() {
-  const seal = document.getElementById('heroScrollSeal');
-  const spinCw = document.querySelectorAll('.scroll-spin-cw');
-  const spinCcw = document.querySelectorAll('.scroll-spin-ccw');
-
-  if (!seal && !spinCw.length && !spinCcw.length) return;
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    if (seal) {
-      seal.style.transform = `rotate(${scrollY * 0.28}deg)`;
-    }
-    spinCw.forEach(el => {
-      el.style.transform = `rotate(${scrollY * 0.18}deg)`;
-    });
-    spinCcw.forEach(el => {
-      el.style.transform = `rotate(${-scrollY * 0.18}deg)`;
-    });
-  }, { passive: true });
-}
-
-// 7. Live Interactive SEO Growth Terminal & Chart
-function initLiveGrowthChart() {
-  const chartPath = document.getElementById('chartLinePath');
-  const terminal = document.getElementById('seoLiveTerminal');
-  if (!chartPath || !terminal) return;
-
-  try {
-    const length = chartPath.getTotalLength ? chartPath.getTotalLength() : 500;
-    chartPath.style.strokeDasharray = `${length}`;
-    chartPath.style.strokeDashoffset = `${length}`;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          chartPath.style.transition = 'stroke-dashoffset 2.4s cubic-bezier(0.16, 1, 0.3, 1)';
-          chartPath.style.strokeDashoffset = '0';
-          observer.unobserve(terminal);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(terminal);
-  } catch (e) {
-    chartPath.style.strokeDashoffset = '0';
-  }
-
-  // Interactive Nodes Tooltip / Click
-  const nodes = terminal.querySelectorAll('.chart-node');
-  const timelinePill = terminal.querySelector('.chart-timeline-pill');
-
-  nodes.forEach(node => {
-    node.addEventListener('mouseenter', () => {
-      const tip = node.getAttribute('data-tip');
-      if (tip && timelinePill) {
-        timelinePill.textContent = tip;
-        timelinePill.style.borderColor = 'var(--orange-accent)';
-        timelinePill.style.color = '#FFFFFF';
-      }
-    });
-    node.addEventListener('mouseleave', () => {
-      if (timelinePill) {
-        timelinePill.textContent = '7-Month Compounding Curve';
-        timelinePill.style.borderColor = 'rgba(255, 255, 255, 0.14)';
-        timelinePill.style.color = 'rgba(255, 255, 255, 0.75)';
-      }
-    });
-  });
-}
-
-// 8. 3D Card Perspective Tilt on Hover
+// 6. 3D Card Perspective Tilt on Hover
 function init3DTiltCards() {
   if (window.matchMedia('(hover: none)').matches) return;
 
