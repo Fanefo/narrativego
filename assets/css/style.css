@@ -65,6 +65,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
@@ -75,20 +78,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
   position: relative;
 }
 
-/* Subtle ambient background glow */
-body::before {
+/* Subtle ambient background glow (applied via html::before so body::before can host paper grain) */
+html::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 20%;
-  width: 60vw;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100vw;
   height: 600px;
-  background: radial-gradient(circle, rgba(247, 159, 72, 0.05) 0%, rgba(1, 81, 71, 0.04) 50%, transparent 75%);
+  background: radial-gradient(circle at 50% 0%, rgba(247, 159, 72, 0.05) 0%, rgba(1, 81, 71, 0.04) 50%, transparent 75%);
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 ::selection {
@@ -543,6 +551,9 @@ p {
   padding: 18px 0;
   overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
   border-top: 1px solid rgba(7, 67, 59, 0.1);
   border-bottom: 1px solid rgba(7, 67, 59, 0.1);
 }
@@ -1725,6 +1736,387 @@ section {
   gap: 16px;
 }
 
+
+/* ==========================================================================
+   DISCREET GDPR COOKIE PILL (NON-INTRUSIVE)
+   ========================================================================== */
+.cookie-pill {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 999;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  max-width: 440px;
+  transform: translateY(120%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-pill.show {
+  transform: translateY(0);
+}
+
+.cookie-btn-accept {
+  background: var(--teal-primary);
+  color: #FFFFFF;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-fast);
+}
+
+.cookie-btn-accept:hover {
+  background: var(--teal-mid);
+}
+
+/* ==========================================================================
+   EDITORIAL LUXURY CREATIVE SUITE (ANTI-AI AESTHETICS)
+   ========================================================================== */
+
+/* 1. Organic Tactile Paper Grain Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.038;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* 2. Dynamic Spotlight Cursor Glow on Interactive Cards */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(247, 159, 72, 0.12),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(1, 81, 71, 0.14);
+  border-color: rgba(247, 159, 72, 0.45);
+}
+
+/* 3. Button Micro-Animations & Magnetic Hover Lift */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover .icon-svg {
+  transform: translateX(5px);
+}
+
+.btn-outline:hover .icon-svg {
+  transform: translateX(4px);
+}
+
+/* 4. Editorial Scroll Reveal Transitions */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 5. Interactive Content Contrast Split Showcase */
+.contrast-section {
+  padding: 100px 0;
+  background: #FFFFFF;
+  position: relative;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.contrast-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 36px 0 44px;
+}
+
+.contrast-toggle {
+  display: inline-flex;
+  background: var(--teal-surface);
+  padding: 6px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  gap: 8px;
+}
+
+.contrast-btn {
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.contrast-btn.active {
+  background: var(--teal-primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.contrast-btn.active.is-ai {
+  background: #C93B2B;
+  color: #FFFFFF;
+}
+
+.contrast-display-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+.contrast-preview-panel {
+  background: var(--canvas-bg);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-light);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.contrast-preview-panel.panel-ai {
+  border-color: rgba(201, 59, 43, 0.35);
+  background: #FFF8F7;
+}
+
+.contrast-preview-panel.panel-human {
+  border-color: rgba(1, 81, 71, 0.35);
+  background: #F4F8F7;
+}
+
+.contrast-badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.badge-status-bad {
+  background: rgba(201, 59, 43, 0.12);
+  color: #C93B2B;
+}
+
+.badge-status-good {
+  background: rgba(1, 81, 71, 0.12);
+  color: var(--teal-primary);
+}
+
+.contrast-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.contrast-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 16px 20px;
+  border-left: 3px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.contrast-meta-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.meta-chip {
+  background: #FFFFFF;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.meta-chip-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.meta-chip-val {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.val-bad {
+  color: #C93B2B;
+}
+
+.val-good {
+  color: var(--teal-primary);
+}
+
+.contrast-breakdown-panel {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+/* 6. Interactive Case Study Milestones */
+.milestone-stepper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding-bottom: 16px;
+  overflow-x: auto;
+}
+
+.milestone-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.milestone-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+.milestone-btn.active {
+  background: var(--orange-accent) !important;
+  color: #0E2F28 !important;
+  font-weight: 800;
+  border-color: var(--orange-accent) !important;
+  box-shadow: 0 4px 16px rgba(247, 159, 72, 0.45);
+}
+
+.milestone-panel {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+
+.milestone-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* ==========================================================================
+   7. SUPER WOW UX: MOTION SUITE, ROTATING SEALS & LIVE SEO TERMINAL
+   ========================================================================== */
+
+/* Top Reading Progress Bar (Subtle & Lightweight) */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--orange-accent) 0%, #FFB066 50%, var(--teal-primary) 100%);
+  z-index: 9999;
+  transition: width 0.05s ease-out;
+  pointer-events: none;
+}
+
+
+
+
 /* ==========================================================================
    RESPONSIVE DESIGN SYSTEM (MOBILE & TABLET OPTIMIZED)
    ========================================================================== */
@@ -2709,387 +3101,136 @@ section {
   }
 }
 
-/* ==========================================================================
-   DISCREET GDPR COOKIE PILL (NON-INTRUSIVE)
-   ========================================================================== */
-.cookie-pill {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-medium);
-  box-shadow: var(--shadow-lg);
-  border-radius: var(--radius-md);
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  z-index: 999;
-  font-size: 0.88rem;
-  color: var(--text-main);
-  max-width: 440px;
-  transform: translateY(120%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-.cookie-pill.show {
-  transform: translateY(0);
-}
-
-.cookie-btn-accept {
-  background: var(--teal-primary);
-  color: #FFFFFF;
-  padding: 7px 16px;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background var(--transition-fast);
-}
-
-.cookie-btn-accept:hover {
-  background: var(--teal-mid);
-}
 
 /* ==========================================================================
-   EDITORIAL LUXURY CREATIVE SUITE (ANTI-AI AESTHETICS)
+   BULLETPROOF MOBILE-FIRST OVERFLOW & FIT SYSTEM (TABLETS & PHONES)
    ========================================================================== */
-
-/* 1. Organic Tactile Paper Grain Overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.038;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* 2. Dynamic Spotlight Cursor Glow on Interactive Cards */
-.spotlight-card {
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
-
-.spotlight-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(247, 159, 72, 0.12),
-    transparent 65%
-  );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.spotlight-card:hover::before {
-  opacity: 1;
-}
-
-.spotlight-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px -10px rgba(1, 81, 71, 0.14);
-  border-color: rgba(247, 159, 72, 0.45);
-}
-
-/* 3. Button Micro-Animations & Magnetic Hover Lift */
-.btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary:hover .icon-svg {
-  transform: translateX(5px);
-}
-
-.btn-outline:hover .icon-svg {
-  transform: translateX(4px);
-}
-
-/* 4. Editorial Scroll Reveal Transitions */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-on-scroll.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 5. Interactive Content Contrast Split Showcase */
-.contrast-section {
-  padding: 100px 0;
-  background: #FFFFFF;
-  position: relative;
-  border-bottom: 1px solid var(--border-light);
-}
-
-.contrast-toggle-wrap {
-  display: flex;
-  justify-content: center;
-  margin: 36px 0 44px;
-}
-
-.contrast-toggle {
-  display: inline-flex;
-  background: var(--teal-surface);
-  padding: 6px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-medium);
-  gap: 8px;
-}
-
-.contrast-btn {
-  padding: 12px 26px;
-  border-radius: var(--radius-full);
-  border: none;
-  background: transparent;
-  font-family: var(--font-main);
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all var(--transition-fast);
-}
-
-.contrast-btn.active {
-  background: var(--teal-primary);
-  color: #FFFFFF;
-  box-shadow: var(--shadow-sm);
-}
-
-.contrast-btn.active.is-ai {
-  background: #C93B2B;
-  color: #FFFFFF;
-}
-
-.contrast-display-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 36px;
-  align-items: stretch;
-}
-
-.contrast-preview-panel {
-  background: var(--canvas-bg);
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border-light);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  transition: all 0.35s ease;
-}
-
-.contrast-preview-panel.panel-ai {
-  border-color: rgba(201, 59, 43, 0.35);
-  background: #FFF8F7;
-}
-
-.contrast-preview-panel.panel-human {
-  border-color: rgba(1, 81, 71, 0.35);
-  background: #F4F8F7;
-}
-
-.contrast-badge-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 20px;
-}
-
-.badge-status-bad {
-  background: rgba(201, 59, 43, 0.12);
-  color: #C93B2B;
-}
-
-.badge-status-good {
-  background: rgba(1, 81, 71, 0.12);
-  color: var(--teal-primary);
-}
-
-.contrast-title {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  color: var(--text-main);
-  line-height: 1.3;
-  margin-bottom: 16px;
-}
-
-.contrast-body {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  font-style: italic;
-  padding: 16px 20px;
-  border-left: 3px solid var(--border-medium);
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 4px;
-  margin-bottom: 24px;
-}
-
-.contrast-meta-box {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 10px;
-}
-
-.meta-chip {
-  background: #FFFFFF;
-  padding: 14px 18px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
-}
-
-.meta-chip-label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  color: var(--text-light);
-  font-weight: 600;
-}
-
-.meta-chip-val {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-top: 4px;
-}
-
-.val-bad {
-  color: #C93B2B;
-}
-
-.val-good {
-  color: var(--teal-primary);
-}
-
-.contrast-breakdown-panel {
-  background: #FFFFFF;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-light);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.breakdown-list {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin: 20px 0;
-}
-
-.breakdown-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 0.96rem;
-  line-height: 1.5;
-}
-
-/* 6. Interactive Case Study Milestones */
-.milestone-stepper {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  padding-bottom: 16px;
-  overflow-x: auto;
-}
-
-.milestone-btn {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  font-family: var(--font-main);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #FFFFFF !important;
-  padding: 10px 22px;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all var(--transition-fast);
-}
-
-.milestone-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
-  color: #FFFFFF !important;
-  border-color: rgba(255, 255, 255, 0.7);
-  transform: translateY(-1px);
-}
-
-.milestone-btn.active {
-  background: var(--orange-accent) !important;
-  color: #0E2F28 !important;
-  font-weight: 800;
-  border-color: var(--orange-accent) !important;
-  box-shadow: 0 4px 16px rgba(247, 159, 72, 0.45);
-}
-
-.milestone-panel {
-  display: none;
-  animation: fadeIn 0.35s ease;
-}
-
-.milestone-panel.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
 @media (max-width: 900px) {
   .contrast-display-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
-/* ==========================================================================
-   7. SUPER WOW UX: MOTION SUITE, ROTATING SEALS & LIVE SEO TERMINAL
-   ========================================================================== */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box !important;
+  }
 
-/* Top Reading Progress Bar (Subtle & Lightweight) */
-.scroll-progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, var(--orange-accent) 0%, #FFB066 50%, var(--teal-primary) 100%);
-  z-index: 9999;
-  transition: width 0.05s ease-out;
-  pointer-events: none;
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Prevent button single-line blowouts */
+  .btn {
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+  }
+
+  /* Grid safety resets: prevent unconstrained children from forcing grid columns wider than screen */
+  .case-study-showcase,
+  .calc-wrapper,
+  .contrast-display-grid,
+  .contact-section-wrap,
+  .about-grid-lead,
+  .hero-grid,
+  .services-grid,
+  .process-grid,
+  .blog-grid,
+  .testimonials-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .case-study-showcase > div,
+  .calc-wrapper > div,
+  .contrast-display-grid > div,
+  .contact-section-wrap > div,
+  .about-grid-lead > div {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Interactive Milestone Stepper - cleanly scrolls horizontally without expanding parent */
+  .milestone-stepper {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 14px !important;
+    scrollbar-width: none !important;
+  }
+  .milestone-stepper::-webkit-scrollbar {
+    display: none !important;
+  }
+  .milestone-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Calculator card safety */
+  .calc-wrapper,
+  .calc-results-card,
+  .calc-controls {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Marquee ribbon safety */
+  .marquee-bar {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  /* Contrast toggle safety */
+  .contrast-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .contrast-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    white-space: normal !important;
+  }
+
+  /* Comparison table card safety */
+  .comparison-row {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 }
 
-
-
+@media (max-width: 480px) {
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  .btn {
+    font-size: 0.92rem !important;
+    padding: 12px 18px !important;
+  }
+}
