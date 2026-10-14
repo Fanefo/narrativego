@@ -1840,6 +1840,20 @@ section {
   }
 }
 
+/* Blog Section Header (moved from inline) */
+.blog-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Case Study Title */
+.case-study-title {
+  font-size: 1.8rem;
+}
+
 /* --- MOBILE LANDSCAPE & LARGE PHONES (768px) --- */
 @media (max-width: 768px) {
   .container {
@@ -1861,6 +1875,33 @@ section {
   }
   .section-header {
     margin-bottom: 36px !important;
+  }
+  
+  /* Blog Section Header stacks on mobile */
+  .blog-section-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+  
+  /* Case Study Title scales on mobile */
+  .case-study-title {
+    font-size: 1.2rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  /* Override remaining inline font-sizes on mobile */
+  .case-study-showcase p[style],
+  .results-section p[style] {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+  }
+  .contact-direct-channels h3[style],
+  .contact-form-box h3[style] {
+    font-size: 1.1rem !important;
+  }
+  .contact-card-channel div[style] {
+    font-size: 0.85rem !important;
   }
 
   /* --- Hero Section --- */
